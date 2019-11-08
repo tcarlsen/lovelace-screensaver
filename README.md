@@ -31,9 +31,10 @@ screensaver:
 
 Configuration of this plugin is done via your `ui-lovelace.yaml` in the property `screensaver` you created in the installation:
 
-| property  | description                                                  | default |
-| --------- | ------------------------------------------------------------ | ------- |
-| query     | search terms for the type of images you want                 | nature  |
+| property            | description                                                | default |
+| ------------------- | ---------------------------------------------------------- | ------- |
+| unsplash_access_key | **!required** see installation guide to get your key       | nature  |
+| query     | search terms for the type of images you want                         | nature  |
 | idle_time | the time in minutes you want the screensaver to wait before starting | 10      |
 
 **Example:**
