@@ -2,8 +2,6 @@
 
 > A lovely screensaver for your Home Assistant setup, using images from [Unsplash](https://unsplash.com/). Perfect for a allways on home panel diplay!
 
-**OBS!** this plugin is in early alpha and has not been fully testet! use on own risk... *not that the risk is so high, but better save then sorry I guess*
-
 ## Installation
 
 1. You will need a Access Key from Unsplash for this plugin to work
