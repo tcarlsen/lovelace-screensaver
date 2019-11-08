@@ -103,18 +103,20 @@ window.setInterval(() => {
   }
 }, 60000); // 60000 = 1 minute
 
-window.addEventListener('click', () => {
+window.addEventListener('click', e => {
   idleTime = 0;
 
   if (screenSaverRunning) {
+    e.preventDefault();
     stopScreenSaver();
   }
 });
 
-window.addEventListener('touchstart', () => {
+window.addEventListener('touchstart', e => {
   idleTime = 0;
 
   if (screenSaverRunning) {
+    e.preventDefault();
     stopScreenSaver();
   }
 });
