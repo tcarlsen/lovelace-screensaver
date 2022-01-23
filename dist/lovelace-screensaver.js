@@ -2460,7 +2460,20 @@
 	screenSaverContainer.appendChild(screenSaverImageOne);
 	screenSaverContainer.appendChild(screenSaverImageTwo);
 
+	var screenSaverTime = document.createElement('div');
+	screenSaverTime.style.position = 'absolute';
+	screenSaverTime.style.top = '30%';
+	screenSaverTime.style.left = '50%';
+	screenSaverTime.style.transform = 'translate(-50%, -50%)';
+	screenSaverTime.style.fontSize = '1600%';
+	screenSaverTime.style.color = 'black';
+	screenSaverContainer.appendChild(screenSaverTime);
+
 	const changeImage = function () {
+	  const today = new Date();
+	  let h = today.getHours();
+	  let m = today.getMinutes();
+
 	  if (screenSaverRunning) {
 	    currentImage++;
 
@@ -2478,14 +2491,16 @@
 	      screenSaverImageOne.style.opacity = 1;
 	    }
 
-	    setTimeout(changeImage, 30000); // 30000 = 30 sekunder
+		screenSaverTime.textContent = String(h).padStart(2, '0') + ":" + String(m).padStart(2, '0');
+
+	    setTimeout(changeImage, 60000); // 30000 = 30 sekunder
 	  }
 	};
 
 	const startScreenSaver = function () {
 	  screenSaverRunning = true;
 	  unsplash$1.search.photos(screensaverConfig.query, 1, 21, {
-	    orientation: 'landscape'
+	    orientation: 'portrait'
 	  }).then(unsplash_1).then(json => {
 	    images = json.results;
 	    document.body.appendChild(screenSaverContainer);
