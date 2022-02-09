@@ -2430,7 +2430,8 @@
 	ll = ll && ll.querySelector('hui-root');
 	const screensaverConfig = {
 	  query: 'nature',
-	  idle_time: 10,
+	  idle_time: 5,
+	  orientation: 'portrait',
 	  ...ll.lovelace.config.screensaver
 	};
 	const unsplash$1 = new Unsplash({
@@ -2459,7 +2460,6 @@
 	const screenSaverImageTwo = screenSaverImageOne.cloneNode(true);
 	screenSaverContainer.appendChild(screenSaverImageOne);
 	screenSaverContainer.appendChild(screenSaverImageTwo);
-
 	var screenSaverTime = document.createElement('div');
 	screenSaverTime.style.position = 'absolute';
 	screenSaverTime.style.top = '30%';
@@ -2491,8 +2491,7 @@
 	      screenSaverImageOne.style.opacity = 1;
 	    }
 
-		screenSaverTime.textContent = String(h).padStart(2, '0') + ":" + String(m).padStart(2, '0');
-
+	    screenSaverTime.textContent = String(h).padStart(2, '0') + ":" + String(m).padStart(2, '0');
 	    setTimeout(changeImage, 60000); // 30000 = 30 sekunder
 	  }
 	};
@@ -2500,7 +2499,7 @@
 	const startScreenSaver = function () {
 	  screenSaverRunning = true;
 	  unsplash$1.search.photos(screensaverConfig.query, 1, 21, {
-	    orientation: 'portrait'
+	    orientation: screensaverConfig.orientation
 	  }).then(unsplash_1).then(json => {
 	    images = json.results;
 	    document.body.appendChild(screenSaverContainer);

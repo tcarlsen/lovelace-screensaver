@@ -35,7 +35,8 @@ Configuration of this plugin is done via your `ui-lovelace.yaml` in the property
 | ------------------- | ---------------------------------------------------------- | ------- |
 | unsplash_access_key | **!required** see installation guide to get your key       | nature  |
 | query     | search terms for the type of images you want                         | nature  |
-| idle_time | the time in minutes you want the screensaver to wait before starting | 10      |
+| idle_time | the time in minutes you want the screensaver to wait before starting | 5       |
+| orientation | possible values: portrait or landscape | portrait |
 
 **Example:**
 
@@ -43,6 +44,7 @@ Configuration of this plugin is done via your `ui-lovelace.yaml` in the property
 screensaver:
   unsplash_access_key: !secret unsplash_access_key
   query: animals
+  orientation: landscape
   idle_time: 5
 ```
 

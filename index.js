@@ -15,6 +15,7 @@ ll = ll && ll.querySelector('hui-root');
 const screensaverConfig = {
   query: 'nature',
   idle_time: 5,
+  orientation: 'portrait',
   ...ll.lovelace.config.screensaver
 };
 
@@ -92,7 +93,7 @@ const startScreenSaver = function() {
   screenSaverRunning = true;
 
   unsplash.search
-    .photos(screensaverConfig.query, 1, 21, { orientation: 'portrait' })
+    .photos(screensaverConfig.query, 1, 21, { orientation: screensaverConfig.orientation })
     .then(toJson)
     .then(json => {
       images = json.results;
