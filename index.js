@@ -15,7 +15,8 @@ ll = ll && ll.querySelector('hui-root');
 const screensaverConfig = {
   query: 'nature',
   idle_time: 5,
-  orientation: 'portrait',
+  orientation: 'landscape',
+  timeout: 30000,
   ...ll.lovelace.config.screensaver
 };
 
@@ -85,7 +86,7 @@ const changeImage = function() {
 
     screenSaverTime.textContent = String(h).padStart(2, '0') + ":" + String(m).padStart(2, '0');
 
-    setTimeout(changeImage, 60000); // 30000 = 30 sekunder
+    setTimeout(changeImage, screensaverConfig.timeout);
   }
 };
 
@@ -118,7 +119,7 @@ window.setInterval(() => {
       startScreenSaver();
     }
   }
-}, 60000); // 60000 = 1 minute
+}, 60000); // 60000 ms = 60 s = 1 minute
 
 window.addEventListener('click', e => {
   idleTime = 0;
