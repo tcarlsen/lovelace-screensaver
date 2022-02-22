@@ -31,11 +31,16 @@ screensaver:
 
 Configuration of this plugin is done via your `ui-lovelace.yaml` in the property `screensaver` you created in the installation:
 
-| property            | description                                                | default |
-| ------------------- | ---------------------------------------------------------- | ------- |
-| unsplash_access_key | **!required** see installation guide to get your key       | nature  |
-| query     | search terms for the type of images you want                         | nature  |
-| idle_time | the time in minutes you want the screensaver to wait before starting | 10      |
+| property            | description                                                          | default   |
+| ------------------- | -------------------------------------------------------------------- | -------   |
+| unsplash_access_key | **!required** see installation guide to get your key                 |           |
+| query               | search terms for the type of images you want                         | nature    |
+| idle_time           | the time in minutes you want the screensaver to wait before starting | 5         |
+| orientation         | possible values: portrait or landscape                               | landscape |
+| timeout             | the time in milliseconds an image is displayed [^1]                  | 30000     |
+
+[^1]: Make sure you are not exceeding the maximum amount of request for a Demo account (50 requests per hour).
+
 
 **Example:**
 
@@ -43,7 +48,15 @@ Configuration of this plugin is done via your `ui-lovelace.yaml` in the property
 screensaver:
   unsplash_access_key: !secret unsplash_access_key
   query: animals
+  orientation: landscape
   idle_time: 5
+```
+
+
+### Note for the developers!
+To build the index.js use:
+```
+yarn rollup -c rollup.config.js
 ```
 
 ---
